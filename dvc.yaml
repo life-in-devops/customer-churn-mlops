@@ -1,0 +1,9 @@
+stages:
+  prepare_data:
+    cmd: poetry run python scripts/run_data_pipeline.py
+    deps:
+    - data/raw/customer_churn.csv
+    - scripts/run_data_pipeline.py
+    - src/customer_churn_mlops
+    outs:
+    - data/processed
