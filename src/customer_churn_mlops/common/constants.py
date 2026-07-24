@@ -37,3 +37,18 @@ CATEGORICAL_FEATURES = [
 ]
 
 FEATURE_NAMES_FILE = "feature_names.json"
+
+LOGISTIC_REGRESSION = "logistic_regression"
+RANDOM_FOREST = "random_forest"
+GRADIENT_BOOSTING = "gradient_boosting"
+
+PRIMARY_METRIC = "roc_auc"
+
+ACCURACY = "accuracy"
+PRECISION = "precision"
+RECALL = "recall"
+F1_SCORE = "f1_score"
+ROC_AUC = "roc_auc"
+
+METRICS_FILE = "metrics.json"
+MODEL_METADATA_FILE = "model_metadata.json"
