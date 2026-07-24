@@ -1,17 +1,30 @@
 from pathlib import Path
 
-PROJECT_ROOT = Path(__file__).resolve().parents[3]
+from customer_churn_mlops.common.constants import (
+    FEATURE_NAMES_FILE,
+    MODEL_NAME,
+    PREPROCESSOR_NAME,
+    TEST_DATASET,
+    TRAIN_DATASET,
+)
 
-CONFIG_DIR = PROJECT_ROOT / "config"
+# Project Root
+ROOT_DIR = Path(__file__).resolve().parents[3]
 
-DATA_DIR = PROJECT_ROOT / "data"
+# Data Directories
+DATA_DIR = ROOT_DIR / "data"
 RAW_DATA_DIR = DATA_DIR / "raw"
 PROCESSED_DATA_DIR = DATA_DIR / "processed"
-EXTERNAL_DATA_DIR = DATA_DIR / "external"
 
-RAW_DATASET = RAW_DATA_DIR / "customer_churn.csv"
+# Dataset Paths
+TRAIN_DATA_PATH = PROCESSED_DATA_DIR / TRAIN_DATASET
+TEST_DATA_PATH = PROCESSED_DATA_DIR / TEST_DATASET
 
-TRAIN_DATASET = PROCESSED_DATA_DIR / "train.csv"
-TEST_DATASET = PROCESSED_DATA_DIR / "test.csv"
+# Artifact Directory
+ARTIFACTS_DIR = ROOT_DIR / "storage"
+ARTIFACTS_DIR.mkdir(parents=True, exist_ok=True)
 
-SCHEMA_FILE = PROJECT_ROOT / "src" / "customer_churn_mlops" / "schemas" / "dataset_schema.yaml"
+# Artifact Paths
+PREPROCESSOR_PATH = ARTIFACTS_DIR / PREPROCESSOR_NAME
+MODEL_PATH = ARTIFACTS_DIR / MODEL_NAME
+FEATURE_NAMES_PATH = ARTIFACTS_DIR / FEATURE_NAMES_FILE
